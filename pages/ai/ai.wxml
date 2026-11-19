@@ -1,0 +1,49 @@
+<view class="page">
+
+  <!-- 顶栏 -->
+  <view class="head">
+    <view class="avatar">AI</view>
+    <view class="head-body">
+      <text class="head-title">{{storeName}} · AI 推荐官</text>
+      <text class="head-sub">{{modeText}} · 只推荐店内图书</text>
+    </view>
+    <text class="head-clear" bindtap="onClear">清空</text>
+  </view>
+
+  <!-- 对话区 -->
+  <scroll-view class="chat" scroll-y scroll-top="{{scrollTop}}" scroll-with-animation>
+    <view class="msg msg-{{item.role}}" wx:for="{{messages}}" wx:key="id">
+
+      <view class="bubble bubble-{{item.role}}" wx:if="{{item.text || item.streaming}}">
+        <text class="text" user-select="{{true}}">{{item.text}}</text>
+        <text class="caret" wx:if="{{item.streaming}}">▍</text>
+      </view>
+
+      <!-- 推荐书目 -->
+      <view class="books" wx:if="{{item.books.length}}">
+        <view class="book" wx:for="{{item.books}}" wx:for-item="b" wx:key="id"
+              data-id="{{b.id}}" bindtap="goDetail">
+          <image class="book-cover" src="{{b.cover}}" mode="aspectFill" />
+          <text class="book-title ellipsis">{{b.title}}</text>
+          <text class="book-price">¥{{b.price}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="chat-pad"></view>
+  </scroll-view>
+
+  <!-- 快捷提问 -->
+  <scroll-view class="chips" scroll-x wx:if="{{messages.length <= 1}}">
+    <text class="chip" wx:for="{{chips}}" wx:key="*this" data-kw="{{item}}" bindtap="tapChip">{{item}}</text>
+  </scroll-view>
+
+  <!-- 输入栏 -->
+  <view class="bar">
+    <input class="input" placeholder="说说你想看什么…" value="{{input}}" confirm-type="send"
+           bindinput="onInput" bindconfirm="onSend" cursor-spacing="20" />
+    <view class="send {{sending || !input ? 'send-dis' : ''}}" bindtap="onSend">
+      {{sending ? '回答中' : '发送'}}
+    </view>
+  </view>
+</view>

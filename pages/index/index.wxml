@@ -1,0 +1,65 @@
+<view class="page">
+
+  <!-- 搜索入口 -->
+  <view class="search" bindtap="goSearch">
+    <image class="search-icon" src="/images/搜索.png" mode="aspectFit" />
+    <text class="search-ph">搜书名 / 作者 / 标签</text>
+  </view>
+
+  <!-- 轮播 -->
+  <swiper class="banner" indicator-dots="{{true}}" indicator-color="rgba(255,255,255,.5)"
+          indicator-active-color="#fff" autoplay="{{true}}" circular="{{true}}" interval="3800">
+    <swiper-item wx:for="{{banners}}" wx:key="*this">
+      <image class="banner-img" src="{{item}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 公告 -->
+  <view class="notice">
+    <text class="notice-tag">公告</text>
+    <text class="notice-text ellipsis">{{notice}}</text>
+  </view>
+
+  <!-- 分类 -->
+  <view class="cats">
+    <view class="cat" wx:for="{{categories}}" wx:key="id"
+          style="background:{{item.color}}" data-id="{{item.id}}" bindtap="goCategory">
+      <text class="cat-name" style="color:{{item.textColor}}">{{item.name}}</text>
+      <text class="cat-count" style="color:{{item.textColor}}">{{item.count}} 本</text>
+    </view>
+  </view>
+
+  <!-- AI 入口 -->
+  <view class="ai-entry" bindtap="goAI">
+    <view class="ai-badge">AI</view>
+    <view class="ai-body">
+      <text class="ai-title">不知道读什么？</text>
+      <text class="ai-sub">让 AI 推荐官按你的口味挑三本</text>
+    </view>
+    <text class="ai-arrow">›</text>
+  </view>
+
+  <!-- 猜你喜欢 -->
+  <view class="section">
+    <view class="section-head">
+      <text class="section-title">猜你喜欢</text>
+      <text class="more" bindtap="goMore">全部 ›</text>
+    </view>
+    <view class="grid">
+      <view class="grid-item" wx:for="{{guess}}" wx:key="id">
+        <book-card book="{{item}}" mode="grid" bind:tap="goDetail" />
+      </view>
+    </view>
+  </view>
+
+  <!-- 推荐好书 -->
+  <view class="section">
+    <view class="section-head">
+      <text class="section-title">推荐好书</text>
+      <text class="more" bindtap="goMore">全部 ›</text>
+    </view>
+    <book-card wx:for="{{recommend}}" wx:key="id" book="{{item}}" mode="list" bind:tap="goDetail" />
+  </view>
+
+  <view class="footer">拾光书店 · 让好书不被错过</view>
+</view>

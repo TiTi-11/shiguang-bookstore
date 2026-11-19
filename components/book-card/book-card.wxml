@@ -1,0 +1,11 @@
+<view class="bc bc-{{mode}}" bindtap="onTap">
+  <image class="bc-cover" src="{{book.cover}}" mode="aspectFill" lazy-load="{{true}}" />
+  <view class="bc-body">
+    <text class="bc-title ellipsis">{{book.title}}</text>
+    <text class="bc-author ellipsis">{{book.author}}</text>
+    <view class="bc-meta">
+      <text class="bc-price">¥{{priceText}}</text>
+      <text class="bc-sales">已售 {{salesText}}</text>
+    </view>
+  </view>
+</view>

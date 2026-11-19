@@ -1,0 +1,29 @@
+<view class="wrap">
+
+  <!-- 左侧分类 -->
+  <scroll-view class="side" scroll-y>
+    <view class="side-item {{currentId === item.id ? 'side-item-on' : ''}}"
+          wx:for="{{cats}}" wx:key="id" data-id="{{item.id}}" bindtap="selectCat">
+      <text>{{item.name}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 右侧列表 -->
+  <view class="main">
+    <view class="main-head">
+      <text class="main-title">{{currentName}}</text>
+      <text class="main-count">共 {{total}} 本</text>
+      <text class="main-search" bindtap="goSearch">搜索</text>
+    </view>
+
+    <view class="sorts">
+      <text class="sort {{sort === item.key ? 'sort-on' : ''}}"
+            wx:for="{{sorts}}" wx:key="key" data-key="{{item.key}}" bindtap="changeSort">{{item.label}}</text>
+    </view>
+
+    <scroll-view class="list" scroll-y>
+      <book-card wx:for="{{books}}" wx:key="id" book="{{item}}" mode="list" bind:tap="goDetail" />
+      <view class="empty" wx:if="{{books.length === 0}}">该分类下暂时没有图书</view>
+    </scroll-view>
+  </view>
+</view>

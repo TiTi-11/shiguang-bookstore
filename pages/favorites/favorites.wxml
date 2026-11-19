@@ -1,0 +1,22 @@
+<view class="page">
+
+  <block wx:if="{{list.length}}">
+    <view class="item" wx:for="{{list}}" wx:key="id">
+      <image class="cover" src="{{item.cover}}" mode="aspectFill" data-id="{{item.id}}" bindtap="goDetail" />
+      <view class="body" data-id="{{item.id}}" bindtap="goDetail">
+        <text class="title ellipsis-2">{{item.title}}</text>
+        <text class="author">{{item.author}}</text>
+        <text class="price">¥{{item.price}}</text>
+      </view>
+      <view class="ops">
+        <text class="op-cart" data-id="{{item.id}}" bindtap="addCart">加购</text>
+        <text class="op-del" data-id="{{item.id}}" data-title="{{item.title}}" bindtap="remove">取消</text>
+      </view>
+    </view>
+  </block>
+
+  <view class="empty" wx:else>
+    <text>还没有收藏的图书</text>
+    <view class="btn-primary go" bindtap="goShopping">去逛逛</view>
+  </view>
+</view>

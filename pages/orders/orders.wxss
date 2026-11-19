@@ -1,0 +1,118 @@
+.page {
+  padding: 20rpx 24rpx 40rpx;
+}
+
+.tabs {
+  display: flex;
+  gap: 40rpx;
+  padding: 0 4rpx 20rpx;
+}
+
+.tab {
+  font-size: 28rpx;
+  color: #999;
+  padding-bottom: 8rpx;
+}
+
+.tab-on {
+  color: #2c3e50;
+  font-weight: 700;
+  border-bottom: 4rpx solid #fcc37a;
+}
+
+.order {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.order-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.order-no {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.order-status {
+  font-size: 24rpx;
+  color: #b07a2a;
+  font-weight: 600;
+}
+
+.goods {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f7f7f7;
+}
+
+.goods:last-of-type {
+  border-bottom: none;
+}
+
+.goods-cover {
+  width: 84rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+  margin-right: 16rpx;
+  background: #f2f2f2;
+}
+
+.goods-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.goods-title {
+  font-size: 26rpx;
+  display: block;
+}
+
+.goods-num {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.goods-price {
+  font-size: 26rpx;
+  color: #e6543a;
+}
+
+.order-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16rpx;
+}
+
+.order-time {
+  font-size: 22rpx;
+  color: #bbb;
+}
+
+.order-total {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.pay {
+  color: #e6543a;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.go {
+  width: 260rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  margin: 30rpx auto 0;
+  font-size: 28rpx;
+}

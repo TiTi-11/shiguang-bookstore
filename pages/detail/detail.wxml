@@ -1,0 +1,51 @@
+<view class="page" wx:if="{{book}}">
+
+  <!-- 封面 -->
+  <view class="hero">
+    <image class="hero-cover" src="{{book.cover}}" mode="aspectFill" />
+    <view class="hero-mask"></view>
+  </view>
+
+  <!-- 主信息 -->
+  <view class="card info">
+    <view class="price-row">
+      <text class="now">¥{{book.priceText}}</text>
+      <text class="ori">¥{{book.originalText}}</text>
+      <text class="sales">已售 {{book.salesText}}</text>
+    </view>
+    <text class="title">{{book.title}}</text>
+    <text class="sub">{{book.author}} · {{book.publisher}}</text>
+    <view class="tags">
+      <text class="tag" wx:for="{{book.tags}}" wx:key="*this">{{item}}</text>
+      <text class="tag score">评分 {{book.rating}}</text>
+    </view>
+    <view class="stock">库存 {{book.stock}} 件 · 48 小时内发出</view>
+  </view>
+
+  <!-- 简介 -->
+  <view class="card">
+    <view class="block-title">内容简介</view>
+    <text class="intro">{{book.intro}}</text>
+  </view>
+
+  <!-- 相关推荐 -->
+  <view class="card" wx:if="{{related.length}}">
+    <view class="block-title">同类好书</view>
+    <book-card wx:for="{{related}}" wx:key="id" book="{{item}}" mode="list" bind:tap="goDetail" />
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bar">
+    <view class="bar-fav" bindtap="toggleFav">
+      <text class="bar-icon {{isFav ? 'bar-icon-on' : ''}}">{{isFav ? '★' : '☆'}}</text>
+      <text class="bar-fav-text">{{isFav ? '已收藏' : '收藏'}}</text>
+    </view>
+    <view class="bar-cart" bindtap="goCart">
+      <text class="bar-icon">🛒</text>
+      <text class="bar-fav-text">购物车</text>
+      <text class="badge" wx:if="{{cartCount}}">{{cartCount}}</text>
+    </view>
+    <view class="btn-ghost bar-btn" bindtap="addCart">加入购物车</view>
+    <view class="btn-primary bar-btn" bindtap="buyNow">立即购买</view>
+  </view>
+</view>

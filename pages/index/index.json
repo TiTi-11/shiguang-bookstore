@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "拾光书店",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "book-card": "/components/book-card/book-card"
+  }
+}

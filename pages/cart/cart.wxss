@@ -1,0 +1,196 @@
+.page {
+  padding: 24rpx 24rpx 180rpx;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.head-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.head-clear {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 选中圆圈 */
+.check {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid #d0d0d0;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.check-on {
+  background: #fcc37a;
+  border-color: #fcc37a;
+}
+
+.check-on::after {
+  content: "";
+  position: absolute;
+  left: 12rpx;
+  top: 6rpx;
+  width: 10rpx;
+  height: 18rpx;
+  border-right: 4rpx solid #4a3216;
+  border-bottom: 4rpx solid #4a3216;
+  transform: rotate(40deg);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 16rpx;
+  position: relative;
+}
+
+.cover {
+  width: 130rpx;
+  height: 186rpx;
+  border-radius: 10rpx;
+  margin: 0 20rpx;
+  background: #f2f2f2;
+  flex-shrink: 0;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  height: 186rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.author {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 6rpx;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  color: #e6543a;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.step {
+  width: 52rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  color: #666;
+  background: #fafafa;
+  font-size: 28rpx;
+}
+
+.num {
+  width: 60rpx;
+  text-align: center;
+  font-size: 26rpx;
+}
+
+.del {
+  position: absolute;
+  top: 12rpx;
+  right: 20rpx;
+  color: #ccc;
+  font-size: 34rpx;
+  line-height: 1;
+  padding: 6rpx;
+}
+
+.tip {
+  text-align: center;
+  font-size: 22rpx;
+  color: #bbb;
+  padding: 10rpx 0;
+}
+
+/* 结算栏 */
+.bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx calc(0rpx + env(safe-area-inset-bottom));
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.06);
+}
+
+.all {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.sum {
+  flex: 1;
+  text-align: right;
+  margin-right: 20rpx;
+}
+
+.sum-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.sum-price {
+  color: #e6543a;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin-left: 8rpx;
+}
+
+.pay {
+  width: 220rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  font-size: 28rpx;
+}
+
+.go-shop {
+  width: 240rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  margin: 30rpx auto 0;
+  font-size: 28rpx;
+}

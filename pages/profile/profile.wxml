@@ -1,0 +1,80 @@
+<view class="page">
+
+  <!-- 用户卡片 -->
+  <view class="user" wx:if="{{user}}" bindtap="goLogin">
+    <image class="avatar" src="{{user.avatarUrl}}" mode="aspectFill" />
+    <view class="user-info">
+      <text class="nick">{{user.nickName}}</text>
+      <text class="sub">已登录 · 点击可修改资料</text>
+    </view>
+    <text class="arrow">›</text>
+  </view>
+  <view class="user" wx:else bindtap="goLogin">
+    <image class="avatar" src="/images/avatar.png" mode="aspectFill" />
+    <view class="user-info">
+      <text class="nick">点击登录</text>
+      <text class="sub">登录后可查看订单与收藏</text>
+    </view>
+    <text class="arrow">›</text>
+  </view>
+
+  <!-- 数据概览 -->
+  <view class="stats">
+    <view class="stat" data-status="all" bindtap="goOrders">
+      <text class="stat-num">{{orderCount}}</text>
+      <text class="stat-label">订单</text>
+    </view>
+    <view class="stat" bindtap="goFavorites">
+      <text class="stat-num">{{favCount}}</text>
+      <text class="stat-label">收藏</text>
+    </view>
+    <view class="stat" bindtap="goCart">
+      <text class="stat-num">{{cartCount}}</text>
+      <text class="stat-label">购物车</text>
+    </view>
+  </view>
+
+  <!-- 订单入口 -->
+  <view class="card">
+    <view class="card-head">
+      <text class="card-title">我的订单</text>
+      <text class="card-more" data-status="all" bindtap="goOrders">全部 ›</text>
+    </view>
+    <view class="order-row">
+      <view class="order-entry" data-status="paid" bindtap="goOrders">
+        <text class="oi">📦</text><text>已付款</text>
+      </view>
+      <view class="order-entry" data-status="done" bindtap="goOrders">
+        <text class="oi">✅</text><text>已完成</text>
+      </view>
+      <view class="order-entry" bindtap="goFavorites">
+        <text class="oi">⭐</text><text>收藏夹</text>
+      </view>
+      <view class="order-entry" bindtap="goAI">
+        <text class="oi">🤖</text><text>AI 推荐</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 其他 -->
+  <view class="card list">
+    <view class="row" bindtap="callStore">
+      <text class="row-icon">☎</text>
+      <text class="row-label">联系门店</text>
+      <text class="row-value">{{store.phone}}</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="about">
+      <text class="row-icon">ⓘ</text>
+      <text class="row-label">关于本项目</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="logout" wx:if="{{user}}">
+      <text class="row-icon">⏻</text>
+      <text class="row-label">退出登录</text>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <view class="footer">{{store.slogan}}</view>
+</view>

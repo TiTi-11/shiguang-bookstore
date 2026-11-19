@@ -1,0 +1,50 @@
+name: Bug 反馈
+description: 运行出错、页面异常等问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请尽量提供可复现的信息，方便快速定位。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 问题描述
+      description: 发生了什么？期望是什么？
+      placeholder: 例如：进入 AI 页面后点击发送，气泡一直显示"回答中"不结束
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 打开首页
+        2. 点击 AI 推荐官
+        3. 输入"我想看科幻"并发送
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: 运行环境
+      description: 开发者工具版本 / 基础库版本 / 真机机型
+      placeholder: 例如：微信开发者工具 1.06 / 基础库 3.0.0 / iPhone 14
+
+  - type: input
+    id: ai-mode
+    attributes:
+      label: AI 通道（如相关）
+      description: utils/config.js 里的 mode 与当前生效通道
+      placeholder: 例如：mode=local，实际走了离线规则
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 控制台报错
+      description: 开发者工具 Console 中的报错信息
+      render: shell

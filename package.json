@@ -1,0 +1,22 @@
+{
+  "name": "shiguang-bookstore",
+  "version": "1.0.0",
+  "private": true,
+  "description": "微信原生小程序 · 图书电商 + AI 流式推荐官",
+  "scripts": {
+    "test": "node tests/logic.test.js",
+    "check": "node tests/static-check.js",
+    "verify": "npm run check && npm test"
+  },
+  "keywords": [
+    "wechat-miniprogram",
+    "miniprogram",
+    "vue-like",
+    "sse",
+    "streaming",
+    "deepseek",
+    "ollama"
+  ],
+  "author": "TiTi",
+  "license": "MIT"
+}

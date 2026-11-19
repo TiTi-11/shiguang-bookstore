@@ -1,0 +1,48 @@
+<view class="page">
+
+  <view class="head">
+    <text class="head-title">购物车</text>
+    <text class="head-clear" wx:if="{{items.length}}" bindtap="clear">清空</text>
+  </view>
+
+  <block wx:if="{{items.length}}">
+    <view class="item" wx:for="{{items}}" wx:key="id">
+      <view class="check {{item.checked ? 'check-on' : ''}}" data-id="{{item.id}}" bindtap="toggle"></view>
+      <image class="cover" src="{{item.cover}}" mode="aspectFill"
+             data-id="{{item.id}}" bindtap="goDetail" />
+      <view class="body">
+        <text class="title ellipsis-2">{{item.title}}</text>
+        <text class="author">{{item.author}}</text>
+        <view class="bottom">
+          <text class="price">¥{{item.subtotal}}</text>
+          <view class="stepper">
+            <text class="step" data-id="{{item.id}}" data-num="{{item.num}}" bindtap="minus">−</text>
+            <text class="num">{{item.num}}</text>
+            <text class="step" data-id="{{item.id}}" data-num="{{item.num}}" bindtap="plus">+</text>
+          </view>
+        </view>
+      </view>
+      <text class="del" data-id="{{item.id}}" data-title="{{item.title}}" bindtap="remove">×</text>
+    </view>
+
+    <view class="tip">满 ¥99 包邮，当前{{summary.freight === 0 ? '已包邮' : '运费 ¥' + summary.freight}}</view>
+  </block>
+
+  <view class="empty" wx:else>
+    <text>购物车还是空的</text>
+    <view class="btn-primary go-shop" bindtap="goShopping">去逛逛</view>
+  </view>
+
+  <!-- 结算栏 -->
+  <view class="bar" wx:if="{{items.length}}">
+    <view class="all" bindtap="toggleAll">
+      <view class="check {{summary.allChecked ? 'check-on' : ''}}"></view>
+      <text>全选</text>
+    </view>
+    <view class="sum">
+      <text class="sum-label">合计</text>
+      <text class="sum-price">¥{{summary.payable}}</text>
+    </view>
+    <view class="btn-primary pay" bindtap="checkout">结算({{summary.selectedCount}})</view>
+  </view>
+</view>

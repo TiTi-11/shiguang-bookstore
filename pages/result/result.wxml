@@ -1,0 +1,35 @@
+<view class="page" wx:if="{{order}}">
+
+  <view class="hero">
+    <view class="tick">✓</view>
+    <text class="hero-title">支付成功</text>
+    <text class="hero-sub">我们已收到你的订单，48 小时内发出</text>
+    <text class="hero-price">¥{{order.payable}}</text>
+  </view>
+
+  <view class="card">
+    <view class="row"><text class="k">订单号</text><text class="v">{{order.orderNo}}</text></view>
+    <view class="row"><text class="k">下单时间</text><text class="v">{{order.createdAtText}}</text></view>
+    <view class="row"><text class="k">收货人</text><text class="v">{{order.address.name}} {{order.address.phone}}</text></view>
+    <view class="row"><text class="k">地址</text><text class="v addr">{{order.address.detail}}</text></view>
+  </view>
+
+  <view class="card">
+    <view class="block-title">共 {{order.items.length}} 件</view>
+    <view class="goods" wx:for="{{order.items}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+      <image class="goods-cover" src="{{item.cover}}" mode="aspectFill" />
+      <view class="goods-body">
+        <text class="goods-title ellipsis">{{item.title}}</text>
+        <text class="goods-num">¥{{item.price}} × {{item.num}}</text>
+      </view>
+      <text class="goods-price">¥{{item.subtotal}}</text>
+    </view>
+  </view>
+
+  <view class="btns">
+    <view class="btn-ghost btn" bindtap="goOrders">查看订单</view>
+    <view class="btn-primary btn" bindtap="goHome">继续逛逛</view>
+  </view>
+</view>
+
+<view class="empty" wx:else>没有找到这笔订单</view>

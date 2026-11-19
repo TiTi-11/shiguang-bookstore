@@ -1,0 +1,36 @@
+<view class="page">
+
+  <view class="tabs">
+    <text class="tab {{current === item.key ? 'tab-on' : ''}}" wx:for="{{tabs}}" wx:key="key"
+          data-key="{{item.key}}" bindtap="switchTab">{{item.label}}</text>
+  </view>
+
+  <block wx:if="{{list.length}}">
+    <view class="order" wx:for="{{list}}" wx:key="orderNo">
+      <view class="order-head">
+        <text class="order-no">{{item.orderNo}}</text>
+        <text class="order-status">{{item.statusText}}</text>
+      </view>
+
+      <view class="goods" wx:for="{{item.items}}" wx:for-item="g" wx:key="id"
+            data-id="{{g.id}}" bindtap="goDetail">
+        <image class="goods-cover" src="{{g.cover}}" mode="aspectFill" />
+        <view class="goods-body">
+          <text class="goods-title ellipsis">{{g.title}}</text>
+          <text class="goods-num">¥{{g.price}} × {{g.num}}</text>
+        </view>
+        <text class="goods-price">¥{{g.subtotal}}</text>
+      </view>
+
+      <view class="order-foot">
+        <text class="order-time">{{item.createdAtText}}</text>
+        <text class="order-total">实付 <text class="pay">¥{{item.payable}}</text></text>
+      </view>
+    </view>
+  </block>
+
+  <view class="empty" wx:else>
+    <text>还没有相关订单</text>
+    <view class="btn-primary go" bindtap="goShopping">去挑几本书</view>
+  </view>
+</view>

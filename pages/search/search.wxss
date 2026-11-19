@@ -1,0 +1,78 @@
+.page {
+  padding: 20rpx 24rpx 40rpx;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 999rpx;
+  padding: 0 12rpx 0 24rpx;
+  height: 80rpx;
+  margin-bottom: 28rpx;
+}
+
+.icon {
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.5;
+  margin-right: 14rpx;
+}
+
+.input {
+  flex: 1;
+  font-size: 26rpx;
+}
+
+.btn {
+  font-size: 26rpx;
+  color: #b07a2a;
+  padding: 0 16rpx;
+}
+
+.block {
+  margin-bottom: 30rpx;
+}
+
+.block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.block-title {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.clear {
+  font-size: 22rpx;
+  color: #aaa;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.chip {
+  background: #fff;
+  border-radius: 999rpx;
+  padding: 12rpx 26rpx;
+  font-size: 24rpx;
+  color: #555;
+}
+
+.chip.hot {
+  background: #fff4e6;
+  color: #a86a1e;
+}
+
+.result-head {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 16rpx;
+}
